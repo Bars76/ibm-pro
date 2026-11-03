@@ -1,0 +1,301 @@
+/* ============================================================
+   Onboarding Buddy System — Main Stylesheet
+   PT X | Bootstrap 5.3 + Custom
+   Bootstrap CSS is loaded via <link> in header.php
+   ============================================================ */
+
+/* ── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --obs-primary:     #1d4ed8;
+  --obs-primary-lt:  #dbeafe;
+  --obs-success:     #16a34a;
+  --obs-surface:     #f8fafc;
+  --obs-border:      #e2e8f0;
+  --obs-text:        #1e293b;
+  --obs-muted:       #64748b;
+  --obs-sidebar-w:   0px; /* no sidebar — full-width layout */
+  --obs-navbar-h:    56px;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, "Segoe UI", system-ui, "Noto Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--obs-text);
+  background: var(--obs-surface);
+  min-height: 100vh;
+}
+
+/* ── Navbar ─────────────────────────────────────────────────── */
+.navbar.bg-primary {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%) !important;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.obs-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.22);
+  font-weight: 800;
+  font-size: .8rem;
+  letter-spacing: .5px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.navbar .nav-link {
+  font-size: .875rem;
+  padding: .4rem .75rem;
+  border-radius: 6px;
+  transition: background .15s;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  background: rgba(255,255,255,.15);
+}
+.navbar .nav-link.active {
+  background: rgba(255,255,255,.2);
+  font-weight: 600;
+}
+
+/* ── Main content area ──────────────────────────────────────── */
+.obs-main {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Avatar ─────────────────────────────────────────────────── */
+.obs-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--obs-primary-lt);
+  color: var(--obs-primary);
+  font-weight: 700;
+  font-size: .85rem;
+  flex-shrink: 0;
+}
+.obs-avatar-sm { width: 28px; height: 28px; font-size: .75rem; }
+.obs-avatar-lg { width: 64px; height: 64px; font-size: 1.5rem; }
+
+/* Login page avatar/logo */
+.obs-logo-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--obs-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* ── Cards ──────────────────────────────────────────────────── */
+.card {
+  border: 1px solid var(--obs-border);
+  border-radius: 10px;
+}
+.card-header {
+  background: #fff;
+  border-bottom: 1px solid var(--obs-border);
+  padding: .75rem 1rem;
+  font-size: .875rem;
+}
+.card-footer {
+  background: #fff;
+  border-top: 1px solid var(--obs-border);
+  padding: .6rem 1rem;
+}
+
+/* ── Stat icon ──────────────────────────────────────────────── */
+.obs-stat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ── Progress circle (SVG-based) ────────────────────────────── */
+.obs-progress-circle {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--obs-success) calc(var(--pct, 0) * 1%),
+    #e2e8f0 0
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.obs-progress-circle::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: #fff;
+}
+.obs-progress-circle span {
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--obs-success);
+}
+
+/* ── Notification unread ────────────────────────────────────── */
+.obs-notif-unread {
+  background: #eff6ff;
+  border-left: 3px solid var(--obs-primary);
+}
+
+/* ── Tables ─────────────────────────────────────────────────── */
+.table th {
+  font-size: .8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--obs-muted);
+  border-bottom-width: 1px;
+}
+.table td {
+  vertical-align: middle;
+  font-size: .875rem;
+}
+.table-hover tbody tr:hover {
+  background: #f1f5f9;
+}
+
+/* ── Badges ─────────────────────────────────────────────────── */
+.badge {
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+/* ── Progress bars ──────────────────────────────────────────── */
+.progress {
+  border-radius: 99px;
+  background: #e2e8f0;
+}
+.progress-bar {
+  border-radius: 99px;
+  transition: width .5s ease;
+}
+
+/* ── Alert ──────────────────────────────────────────────────── */
+.alert {
+  border-radius: 8px;
+  font-size: .875rem;
+}
+
+/* ── Forms ──────────────────────────────────────────────────── */
+.form-control, .form-select {
+  border-color: var(--obs-border);
+  border-radius: 7px;
+  font-size: .875rem;
+  transition: border-color .15s, box-shadow .15s;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--obs-primary);
+  box-shadow: 0 0 0 3px rgba(29,78,216,.12);
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.btn {
+  border-radius: 7px;
+  font-size: .875rem;
+  font-weight: 500;
+  transition: all .15s;
+}
+.btn-primary {
+  background: var(--obs-primary);
+  border-color: var(--obs-primary);
+}
+.btn-primary:hover {
+  background: #1e40af;
+  border-color: #1e40af;
+}
+.btn-lg { font-size: 1rem; }
+
+/* ── Modal ──────────────────────────────────────────────────── */
+.modal-content {
+  border-radius: 12px;
+  border: 1px solid var(--obs-border);
+}
+.modal-header {
+  border-bottom: 1px solid var(--obs-border);
+}
+.modal-footer {
+  border-top: 1px solid var(--obs-border);
+}
+
+/* ── Dropdown ───────────────────────────────────────────────── */
+.dropdown-menu {
+  border: 1px solid var(--obs-border);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  font-size: .875rem;
+}
+.dropdown-item {
+  border-radius: 6px;
+  padding: .4rem .8rem;
+}
+.dropdown-item:hover { background: var(--obs-primary-lt); }
+
+/* ── Nav tabs ───────────────────────────────────────────────── */
+.nav-tabs .nav-link {
+  color: var(--obs-muted);
+  border-radius: 8px 8px 0 0;
+  font-size: .875rem;
+}
+.nav-tabs .nav-link.active {
+  color: var(--obs-primary);
+  font-weight: 600;
+}
+
+/* ── Pagination ─────────────────────────────────────────────── */
+.page-link {
+  font-size: .8rem;
+  border-color: var(--obs-border);
+  color: var(--obs-primary);
+}
+.page-item.active .page-link {
+  background: var(--obs-primary);
+  border-color: var(--obs-primary);
+}
+
+/* ── Bootstrap utility colour patches ───────────────────────── */
+.bg-primary-subtle { background: #dbeafe !important; }
+.bg-success-subtle { background: #dcfce7 !important; }
+.bg-info-subtle    { background: #e0f2fe !important; }
+.bg-warning-subtle { background: #fef9c3 !important; }
+
+.text-primary { color: var(--obs-primary) !important; }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .obs-main { padding: 1rem !important; }
+  .card-body { padding: .75rem; }
+  .table-responsive { font-size: .8rem; }
+}
+
+/* ── Login page ────────────────────────────────────────────── */
+body.bg-light { background: #f1f5f9 !important; }
